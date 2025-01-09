@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PostModal from "../components/common/PostModal";
+import Header from "@/components/layout/Header";
 
 interface Post {
   title: string;
@@ -16,11 +17,13 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Home Page</h1>
+    <div className="mb-5 p-8 mx-auto">
+      <Header />
+      <h1 className="text-3xl font-bold mb-6 mt-3 ">Home Page</h1>
+
       <button
         onClick={() => setIsModalOpen(true)} // Open the modal
-        className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+        className="px-6 mt-2 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
       >
         Add New Post
       </button>
@@ -41,7 +44,7 @@ const Home: React.FC = () => {
             No posts yet. Click "Add New Post" to create one.
           </p>
         ) : (
-          <ul className="flex flex-col md:flex-row  gap-5 space-x-8">
+          <ul className="flex flex-col  md:flex-row  gap-5 space-x-8">
             {posts.map((post, index) => (
               <li
                 key={index}
